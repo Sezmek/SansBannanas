@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerState
 {
-    public PlayerMoveState(PlayerStateMachine _stateMachine, Player _palyer, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
+    public PlayerMoveState( Player _palyer, PlayerStateMachine _stateMachine, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
     {
     }
 
@@ -21,5 +21,9 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        player.SetVelocity(xInput * player.movespeed, rb.velocity.y);
+        if (xInput == 0)
+            stateMachine.ChangeState(player.idleState);
     }
 }

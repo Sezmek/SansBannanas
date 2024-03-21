@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(PlayerStateMachine _stateMachine, Player _palyer, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
+    public PlayerIdleState( Player _palyer, PlayerStateMachine _stateMachine, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
     {
     }
 
@@ -21,5 +22,7 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (xInput != 0)
+            stateMachine.ChangeState(player.moveState);
     }
 }
