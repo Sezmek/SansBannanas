@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerGroundedState
 {
-    public PlayerMoveState( Player _palyer, PlayerStateMachine _stateMachine, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
+    public PlayerMoveState(PlayerStateMachine _stateMachine, Player _player, string _animBoolName) : base(_stateMachine, _player, _animBoolName)
     {
     }
 
@@ -21,7 +21,10 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Update()
     {
         base.Update();
-
+        if (player.IsWallDetected())
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
         player.SetVelocity(xInput * player.movespeed, rb.velocity.y);
         if (xInput == 0)
             stateMachine.ChangeState(player.idleState);

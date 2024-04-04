@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
-    public PlayerGroundedState(PlayerStateMachine _stateMachine, Player _palyer, string _animBoolName) : base(_stateMachine, _palyer, _animBoolName)
+    public PlayerGroundedState(PlayerStateMachine _stateMachine, Player _player, string _animBoolName) : base(_stateMachine, _player, _animBoolName)
     {
     }
 
@@ -22,6 +22,10 @@ public class PlayerGroundedState : PlayerState
     {
         base.Update();
 
+        if(!player.IsGroundDetected())
+        {
+            stateMachine.ChangeState(player.airState);
+        }
         if(Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected()) 
         {
             stateMachine.ChangeState(player.jumpState);
