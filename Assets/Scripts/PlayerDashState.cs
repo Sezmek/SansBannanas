@@ -24,6 +24,9 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (!player.IsGroundDetected() && player.IsWallDetected())
+            stateMachine.ChangeState(player.wallslideState);
         player.SetVelocity(player.dashSpeed * player.DashDir,0);
         if (stateTimer < 0)
             stateMachine.ChangeState(player.idleState);
