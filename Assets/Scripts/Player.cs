@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool IsBusy {  get; private set; }
+    
     [Header("Move Info")]
     public float movespeed;
     public float jumpforce;
@@ -79,7 +81,13 @@ public class Player : MonoBehaviour
         StateMachine.currentState.Update();
         CheckForDashInput();
     }
-
+    public IEnumerator BusyFor(float _seconds)
+    {
+        IsBusy = true;
+        yield return new WaitForSeconds(_seconds);
+        IsBusy = false;
+    }
+    public void AnimationTrigger() => StateMachine.currentState.AnimationFinish();
     private void CheckForDashInput()
     {
         if (IsWallDetected())

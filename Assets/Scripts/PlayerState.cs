@@ -14,6 +14,7 @@ public class PlayerState
     private string animBoolName;
 
     protected float stateTimer;
+    protected bool trigger;
 
     public PlayerState(PlayerStateMachine _stateMachine, Player _player, string _animBoolName)
     {
@@ -26,6 +27,7 @@ public class PlayerState
     {
         player.anim.SetBool(animBoolName, true);
         rb = player.Rb;
+        trigger = false;
     }
     
     public virtual void Update()
@@ -40,5 +42,9 @@ public class PlayerState
     public virtual void Exit()
     {
         player.anim.SetBool(animBoolName, false);
+    }
+    public virtual void AnimationFinish()
+    {
+        trigger = true;
     }
 }
