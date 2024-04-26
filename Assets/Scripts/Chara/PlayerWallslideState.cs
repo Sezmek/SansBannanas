@@ -27,6 +27,8 @@ public class PlayerWallslideState : PlayerState
             stateMachine.ChangeState(player.walljumpState);
             return;
         }
+        if (!player.IsWallDetected())
+            stateMachine.ChangeState(player.airState);
 
         if (xInput != 0 && player.Dir != xInput)
             stateMachine.ChangeState(player.idleState);
