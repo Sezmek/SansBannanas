@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5238269223532280598}
   m_Layer: 0
   m_Name: BoneShootAttack 1
-  m_TagString: Untagged
+  m_TagString: BlueBone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7506516312496542467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65113d56620512d4998247d42ed36cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootSpeed: 2
 --- !u!61 &5238269223532280598
 BoxCollider2D:
   m_ObjectHideFlags: 0

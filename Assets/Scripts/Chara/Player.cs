@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +27,12 @@ public class Player : MonoBehaviour
 
     public int Dir { get; private set; } = 1;
     private bool facingRight = true;
+    private float RestTime = 0.5f;
+    private float RestTimeTime;
     #region Components
     public Animator anim { get; private set; }
     public Rigidbody2D Rb { get; private set; }
+    private SpriteRenderer Sr => GetComponentInChildren<SpriteRenderer>();
 
     #endregion
     
@@ -128,5 +132,24 @@ public class Player : MonoBehaviour
     {
         if (_x > 0 && !facingRight) Flip();
         else if (_x < 0 && facingRight) Flip();
+    }
+    public void GetDMG(string tag, GameObject obj)
+    {
+        if (Time.time - RestTimeTime > RestTime)
+        {
+            if (tag == "Bone")
+            {
+                Debug.Log("red");
+            }
+            if (tag == "BlueBone")
+            {
+                return;
+            }
+            if (tag == "RedBone")
+            {
+                Debug.Log("red");
+            }
+            RestTimeTime = Time.time;
+        }
     }
 }

@@ -26,4 +26,14 @@ public class BoneShot : MonoBehaviour
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
         rb.velocity = directionToPlayer * ShootSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player playerScript = collision.gameObject.GetComponent<Player>();
+
+        if (playerScript != null)
+        {
+            playerScript.GetDMG(transform.tag, this.gameObject);
+        }
+    }
 }

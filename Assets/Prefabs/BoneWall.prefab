@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7506516312496542467}
   - component: {fileID: 5238269223532280598}
   m_Layer: 0
-  m_Name: BoneShootAttack
+  m_Name: BoneWall
   m_TagString: Bone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

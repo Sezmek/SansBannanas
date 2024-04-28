@@ -38,6 +38,10 @@ public class PlayerPrimaryAttackState : PlayerState
         base.Update();
         if (stateTimer < 0)
             player.SetVelocity(0, 0);
+        if (xInput != 0)
+        {
+            player.FlipControler(xInput);
+        }
         if (trigger)
         {
             stateMachine.ChangeState(player.idleState);

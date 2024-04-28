@@ -14,15 +14,16 @@ public class Sans : MonoBehaviour
     {
         animator.SetTrigger("Spawn");
         yield return new WaitForSeconds(2);
-        shootAttack.Play(6, 1);
+        shootAttack.Play(6, 1, 1, 40);
         yield return new WaitForSeconds(6);
         animator.Play("Respawn");
         yield return new WaitForSeconds(2);
-        shootAttack.Play(6, 2);
+        shootAttack.Play(6, 1, 1, 30);
+        shootAttack.Play(8, 2, 2, 55);
         yield return new WaitForSeconds(6);
         animator.Play("Respawn");
         yield return new WaitForSeconds(2);
-        shootAttack.Play(6, 3);
+        shootAttack.Play(8, 3, 1, 50);
         yield return new WaitForSeconds(6);
 
     }
